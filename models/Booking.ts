@@ -2,7 +2,7 @@ import {model, Schema,Document,Types} from 'mongoose'
 import crypto from "crypto"
 
 export  interface IBooking extends Document{
-    name:Types.ObjectId;
+    user:Types.ObjectId;
     restaurant:Types.ObjectId;
     date:Date;
     time:string;
@@ -18,7 +18,7 @@ export  interface IBooking extends Document{
 }
 const BookingSchema = new Schema<IBooking>(
     {
-        name: {type:Schema.Types.ObjectId, ref:"User",required:true},
+        user: {type:Schema.Types.ObjectId, ref:"User",required:true},
         restaurant:{type:Schema.Types.ObjectId,ref:"Restaurant",required:true},
         date:{type:Date,required:true},
         time:{type:String,required:true},
